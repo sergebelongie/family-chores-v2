@@ -415,4 +415,17 @@ const timestamp = now.toLocaleString(undefined, {
 });
 buildElement.textContent = `${version} • Built ${timestamp}`;
 
+// Listen for physical keyboard input for PIN entry
+document.addEventListener("keydown", (event) => {
+  const pinEntryVisible = !document.getElementById("pin-entry").classList.contains("hidden");
+  
+  // Only process input if the PIN entry screen is currently active
+  if (pinEntryVisible) {
+    if (event.key >= "0" && event.key <= "9") {
+      handleKey(event.key);
+    } else if (event.key === "Backspace") {
+      handleKey("←");
+    }
+  }
+});
 
