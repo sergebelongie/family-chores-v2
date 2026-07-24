@@ -217,11 +217,13 @@ async function submitPIN() {
     document.getElementById("pin-entry").classList.add("hidden");
     document.getElementById("chore-logger").classList.remove("hidden");
     // Apply custom fonts based on user
-    if (selectedUser === "August") {
-      document.body.classList.add("font-mta");
-    } else {
-      document.body.classList.remove("font-mta");
-    }
+  if (selectedUser === "August") {
+    document.body.classList.add("font-mta");
+    console.log("Debug: Applied MTA Font (Helvetica)");
+  } else {
+    document.body.classList.remove("font-mta");
+    console.log("Debug: Reverted to default font (sans-serif)");
+  }
       document.getElementById("user-title").textContent = `${userData.displayName}’s Chores`;
       renderChoreButtons();
   }
