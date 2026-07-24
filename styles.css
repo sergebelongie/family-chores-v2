@@ -226,7 +226,6 @@ button {
 
 /* Expandable category container */
 .category-block {
-  background: white;
   border-radius: 12px;
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
@@ -234,7 +233,23 @@ button {
   border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* Full-width clickable header */
+/* Set background on the whole card wrapper based on color class */
+.category-block.pastel-blue { background-color: #e3f2fd; }
+.category-block.pastel-yellow { background-color: #fffde7; }
+.category-block.pastel-green { background-color: #e8f5e9; }
+.category-block.pastel-purple { background-color: #f3e5f5; }
+.category-block.pastel-pink { background-color: #fce4ec; }
+.category-block.pastel-gray { background-color: #f5f5f5; }
+
+/* Text colors for summaries */
+.category-block.pastel-blue summary { color: #0d47a1; }
+.category-block.pastel-yellow summary { color: #f57f17; }
+.category-block.pastel-green summary { color: #1b5e20; }
+.category-block.pastel-purple summary { color: #4a148c; }
+.category-block.pastel-pink summary { color: #880e4f; }
+.category-block.pastel-gray summary { color: #37474f; }
+
+/* Summary / Header styling */
 .category-block summary {
   padding: 14px 18px;
   font-size: 1.1rem;
@@ -244,22 +259,34 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  list-style: none;
 }
 
-/* Tint the header based on the category color class */
-.category-block.pastel-blue summary { background-color: #e3f2fd; color: #0d47a1; }
-.category-block.pastel-yellow summary { background-color: #fffde7; color: #f57f17; }
-.category-block.pastel-green summary { background-color: #e8f5e9; color: #1b5e20; }
-.category-block.pastel-purple summary { background-color: #f3e5f5; color: #4a148c; }
-.category-block.pastel-pink summary { background-color: #fce4ec; color: #880e4f; }
+/* Hide default browser disclosure triangle */
+.category-block summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom rotating arrow icon */
+.category-block summary::after {
+  content: "▶";
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* Rotate the arrow when open */
+.category-block[open] summary::after {
+  transform: rotate(90deg);
+}
 
 /* Two-column grid for the chore buttons inside */
 .chores-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  padding: 14px;
-  background-color: #fafafa;
+  padding: 0 14px 14px 14px;
 }
 
 /* Adjust button style to fit the grid nicely */
@@ -270,6 +297,8 @@ button {
   font-size: 0.95rem;
   text-align: center;
   box-sizing: border-box;
+  background: white; /* Keeps inner buttons crisp white */
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Style the summary to handle the arrow placement */
