@@ -408,17 +408,4 @@ const timestamp = now.toLocaleString(undefined, {
 });
 buildElement.textContent = `${version} • Built ${timestamp}`;
 
-/* Only apply padding and background when the details block is open */
-.category-block[open] .chores-grid {
-  padding: 14px;
-  background-color: #fafafa;
-}
 
-/* Ensure it's zeroed out when closed */
-.chores-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 0;
-  background-color: transparent;
-}
