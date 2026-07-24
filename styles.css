@@ -301,8 +301,9 @@ button {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Temporary test font */
+/* August's NYC MTA Font */
 .font-mta, .font-mta button {
-  font-family: "Courier New", Courier, monospace; 
-  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
