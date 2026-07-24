@@ -222,7 +222,7 @@ async function submitPIN() {
     showToast("Debug: Applied MTA Font");
   } else {
     document.body.classList.remove("font-mta");
-    showToast("Debug: Reverted to default font");
+    showToast(`Debug: Reverted (User is '${selectedUser}')`);
   }
       document.getElementById("user-title").textContent = `${userData.displayName}’s Chores`;
       renderChoreButtons();
