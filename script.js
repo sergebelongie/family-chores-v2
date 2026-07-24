@@ -168,6 +168,7 @@ function exitToHome() {
   document.getElementById("admin-dashboard").classList.add("hidden");
   document.getElementById("chore-history").classList.add("hidden");
   document.getElementById("history-list").innerHTML = "";
+  document.body.classList.remove("font-mta");
 }
 
 // User selects their name
@@ -215,8 +216,14 @@ async function submitPIN() {
   } else {
     document.getElementById("pin-entry").classList.add("hidden");
     document.getElementById("chore-logger").classList.remove("hidden");
-    document.getElementById("user-title").textContent = `${userData.displayName}’s Chores`;
-    renderChoreButtons();
+    // Apply custom fonts based on user
+    if (selectedUser === "August") {
+      document.body.classList.add("font-mta");
+    } else {
+      document.body.classList.remove("font-mta");
+    }
+      document.getElementById("user-title").textContent = `${userData.displayName}’s Chores`;
+      renderChoreButtons();
   }
 }
 
