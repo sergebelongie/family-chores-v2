@@ -223,3 +223,51 @@ button {
 #toast.show {
   opacity: 1;
 }
+
+/* Expandable category container */
+.category-block {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Full-width clickable header */
+.category-block summary {
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tint the header based on the category color class */
+.category-block.pastel-blue summary { background-color: #e3f2fd; color: #0d47a1; }
+.category-block.pastel-yellow summary { background-color: #fffde7; color: #f57f17; }
+.category-block.pastel-green summary { background-color: #e8f5e9; color: #1b5e20; }
+.category-block.pastel-purple summary { background-color: #f3e5f5; color: #4a148c; }
+.category-block.pastel-pink summary { background-color: #fce4ec; color: #880e4f; }
+
+/* Two-column grid for the chore buttons inside */
+.chores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 14px;
+  background-color: #fafafa;
+}
+
+/* Adjust button style to fit the grid nicely */
+.chores-grid .chore-button {
+  width: 100%;
+  margin: 0;
+  padding: 12px 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  box-sizing: border-box;
+}
