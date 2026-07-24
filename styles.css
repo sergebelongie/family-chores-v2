@@ -300,35 +300,3 @@ button {
   background: white; /* Keeps inner buttons crisp white */
   border: 1px solid rgba(0,0,0,0.1);
 }
-
-/* Style the summary to handle the arrow placement */
-.category-block summary {
-  padding: 14px 18px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none; /* Hides default browser arrow in some browsers */
-}
-
-/* Hide default marker for Safari/Chrome */
-.category-block summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Custom rotating arrow icon */
-.category-block summary::after {
-  content: "▶";
-  font-size: 0.8rem;
-  transition: transform 0.2s ease;
-  color: inherit;
-  opacity: 0.7;
-}
-
-/* Rotate the arrow when the details block is open */
-.category-block[open] summary::after {
-  transform: rotate(90deg);
-}
