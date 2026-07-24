@@ -270,7 +270,7 @@ button {
 
 /* Custom rotating arrow icon */
 .category-block summary::after {
-  content: "▶";
+  content: "▶\FE0E";
   font-size: 0.8rem;
   transition: transform 0.2s ease;
   color: inherit;
