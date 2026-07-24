@@ -301,9 +301,13 @@ button {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* August's NYC MTA Font */
+/* August's NYC MTA Font Base */
 .font-mta, .font-mta button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+/* Apply bold styling only to the chore buttons */
+.font-mta .chore-button {
+  font-weight: 700;
 }
