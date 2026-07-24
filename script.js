@@ -76,22 +76,40 @@ async function logOtherChore() {
   showToast(`✅ Logged: ${note}`);
 }
 
-// Render buttons for each chore category + "Other"
+// Render expandable category accordions with a chores grid
 function renderChoreButtons() {
   const container = document.getElementById("chore-buttons");
   container.innerHTML = "";
 
-  categorizedChores.forEach(group => {
-    group.chores.forEach(chore => {
-      const button = document.createElement("button");
-      button.className = `chore-button ${group.colorClass}`;
+  categorizedChores.forEach(categoryObj => {
+    // 1. Create the expandable <details> wrapper
+    const detailsElement = document.createElement('details');
+    detailsElement.className = `category-block ${categoryObj.colorClass}`;
+
+    // 2. Create the <summary> which acts as the clickable header
+    const summaryElement = document.createElement('summary');
+    summaryElement.textContent = categoryObj.category;
+    detailsElement.appendChild(summaryElement);
+
+    // 3. Create the grid container for the chore buttons
+    const choresGrid = document.createElement('div');
+    choresGrid.className = 'chores-grid';
+
+    // 4. Create the individual chore buttons
+    categoryObj.chores.forEach(chore => {
+      const button = document.createElement('button');
+      button.className = 'chore-button';
       button.textContent = chore;
       button.onclick = () => logChore(chore);
-      container.appendChild(button);
+      choresGrid.appendChild(button);
     });
+
+    // 5. Assemble the block
+    detailsElement.appendChild(choresGrid);
+    container.appendChild(detailsElement);
   });
 
-  // Add special "Other" button
+  // Add special "Other" button outside categories
   const otherButton = document.createElement("button");
   otherButton.className = "chore-button other";
   otherButton.textContent = "🌀 Other";
@@ -173,7 +191,6 @@ function selectUser(user) {
   updatePinDisplay();
   document.getElementById("pin-status").textContent = "";
 
-  // ✅ Add this line
   generateKeypad();
 }
 
@@ -240,7 +257,6 @@ function handleKey(key) {
 
   updatePinDisplay();
 
-  // ✅ Auto-submit when 4 digits entered
   if (pinBuffer.length === 4) {
     submitPIN();
   }
@@ -376,7 +392,7 @@ function showToast(message = "✅ Chore logged!") {
 
   setTimeout(() => {
     toast.classList.remove("show");
-    setTimeout(() => toast.classList.add("hidden"), 300); // wait for fade-out
+    setTimeout(() => toast.classList.add("hidden"), 300);
   }, 1500);
 }
 
@@ -392,7 +408,7 @@ window.exportCSV = exportCSV;
 // Build/version info
 const buildElement = document.getElementById("build-info");
 const now = new Date();
-const version = "v1.0";  // You can bump this manually
+const version = "v2.0";
 const timestamp = now.toLocaleString(undefined, {
   dateStyle: "medium",
   timeStyle: "short"
