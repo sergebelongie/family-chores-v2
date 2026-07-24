@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Family Chores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="toast" class="hidden">✅ Chore logged!</div>
+
+  <h1>Family Chores</h1>
+
+  <div id="user-select">
+    <p>Select your name:</p>
+    <button onclick="selectUser('august')">August</button>
+    <button onclick="selectUser('emilia')">Emilia</button>
+  </div>
+
+  <div id="pin-entry" class="hidden">
+    <div id="pin-display" class="pin-dots">----</div>
+    <div id="pin-keypad" class="pin-keypad"></div>
+    <div id="pin-status"></div>
+  </div>
+
+  <div id="chore-logger" class="hidden">
+    <h2 id="user-title"></h2>
+    <p>Tap a chore to log it for today:</p>
+    <div id="chore-buttons"></div>
+    <p id="log-status" style="color:green;"></p>
+
+    <button onclick="showChoreHistory()">View logged chores</button>
+    <button onclick="exitToHome()">Exit</button>
+
+    <div id="chore-history" class="hidden">
+      <h3>This Week's Chore Log</h3>
+      <ul id="history-list"></ul>
+    </div>
+  </div>
+
+  <div id="admin-dashboard" class="hidden">
+    <h2>Admin Dashboard</h2>
+    <div id="admin-filters" style="margin-bottom: 1em;">
+      <label>
+        Start:
+        <input type="date" id="filter-start">
+      </label>
+      <label style="margin-left: 1em;">
+        End:
+        <input type="date" id="filter-end">
+      </label>
+      <button onclick="filterAdminLogs()">Filter Logs</button>
+      <button onclick="exportCSV()" style="margin-left: 1em;">Export CSV</button>
+    </div>
+    <div id="admin-log-container">
+      <ul id="admin-log-list"></ul>
+    </div>
+    <button onclick="exitToHome()">Exit</button>
+  </div>
+  
+  <script type="module" src="script.js"></script>
+
+  <div id="admin-login-link">
+    <button onclick="selectUser('admin')">Admin</button>
+  </div>
+
+  <div id="build-info" class="build-footer"></div>
+
+</body>
+</html>
