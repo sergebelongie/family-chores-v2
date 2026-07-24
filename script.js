@@ -217,7 +217,7 @@ async function submitPIN() {
     document.getElementById("pin-entry").classList.add("hidden");
     document.getElementById("chore-logger").classList.remove("hidden");
     // Apply custom fonts based on user
-  if (selectedUser === "August") {
+  if (selectedUser === "august") {
     document.body.classList.add("font-mta");
     showToast("Debug: Applied MTA Font");
   } else {
