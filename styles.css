@@ -37,6 +37,7 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1em;
   padding: 1em;
+  align-items: start; 
 }
 
 /* Chore Button Style */
