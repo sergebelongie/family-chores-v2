@@ -219,10 +219,10 @@ async function submitPIN() {
     // Apply custom fonts based on user
   if (selectedUser === "August") {
     document.body.classList.add("font-mta");
-    console.log("Debug: Applied MTA Font (Helvetica)");
+    showToast("Debug: Applied MTA Font");
   } else {
     document.body.classList.remove("font-mta");
-    console.log("Debug: Reverted to default font (sans-serif)");
+    showToast("Debug: Reverted to default font");
   }
       document.getElementById("user-title").textContent = `${userData.displayName}’s Chores`;
       renderChoreButtons();
