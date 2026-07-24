@@ -108,13 +108,6 @@ function renderChoreButtons() {
     detailsElement.appendChild(choresGrid);
     container.appendChild(detailsElement);
   });
-
-  // Add special "Other" button outside categories
-  const otherButton = document.createElement("button");
-  otherButton.className = "chore-button other";
-  otherButton.textContent = "🌀 Other";
-  otherButton.onclick = logOtherChore;
-  container.appendChild(otherButton);
 }
 
 // Show logged chores for current week
